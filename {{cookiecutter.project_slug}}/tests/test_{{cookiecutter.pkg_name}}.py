@@ -2,11 +2,9 @@
 """Tests for `{{ cookiecutter.pkg_name }}` package."""
 
 import pytest
-{% if cookiecutter.command_line_interface|lower == 'click' -%}
 from click.testing import CliRunner
 
 from {{ cookiecutter.pkg_name }} import cli
-{%- endif %}
 
 
 @pytest.fixture
@@ -24,7 +22,6 @@ def test_content(response):
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
     del response
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
 
 
 def test_command_line_interface():
@@ -36,4 +33,3 @@ def test_command_line_interface():
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
-{%- endif %}

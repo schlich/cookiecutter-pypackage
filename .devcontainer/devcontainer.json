@@ -1,0 +1,24 @@
+{
+    "name": "Cookie Cutter",
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/mkdocs:2": {
+            "plugins": "mkdocs-material mkdocstrings mkdocs-include-markdown-plugin"
+        },
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+    },
+
+    "postCreateCommand": "poetry install",
+
+    "customizations": {
+        "vscode": {
+            "extensions": ["wholroyd.jinja", "bungcip.better-toml"],
+            "settings": {
+                "python.defaultInterpreterPath": ".venv/bin/python",
+                "files.associations": {
+                    "*.toml": "toml"
+                }
+            }
+        }
+    }
+}

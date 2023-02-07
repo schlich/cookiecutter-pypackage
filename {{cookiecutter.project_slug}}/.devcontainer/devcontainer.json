@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:3",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/bandit:2": {},
+		"ghcr.io/devcontainers-contrib/features/black:2": {},
+		"ghcr.io/devcontainers-contrib/features/mkdocs:2": {
+            "plugins": "mkdocs-material mkdocstrings[python] mkdocs-include-markdown-plugin"
+        },
+		"ghcr.io/devcontainers-contrib/features/mypy:2": {},
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {},
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {}
+	},
+
+	"postCreateCommand": "poetry install",
+
+	"customizations": {
+		"vscode": {
+			"extensions": ["wholroyd.jinja", "bungcip.better-toml"],
+			"settings": {
+				"python.defaultInterpreterPath": ".venv/bin/python",
+				"files.associations": {
+					"*.toml": "toml"
+				}
+			}
+		}
+	}
+}
